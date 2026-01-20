@@ -23,7 +23,7 @@ export const projects: Project[] = [
     title: 'Sacola',
     description:
       'Mobile shopping list app with budget control.',
-    image: '/sacola.png',
+    image: '/Sacola.png',
     linkGithub: 'https://github.com/skrodrigo/sacola',
     technologies: [
       'React Native',
