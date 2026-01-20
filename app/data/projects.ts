@@ -20,6 +20,25 @@ export const projects: Project[] = [
     colorBadge: 'bg-sky-500/20 text-sky-500',
   },
   {
+    title: 'Sacola',
+    description:
+      'Mobile shopping list app with budget control.',
+    image: '/sacola.png',
+    linkGithub: 'https://github.com/skrodrigo/sacola',
+    technologies: [
+      'React Native',
+      'Expo',
+      'TypeScript',
+      'NativeWind',
+      'React Hook Form',
+      'TanStack Query',
+      'Hono',
+      'Prisma',
+      'PostgreSQL',
+    ],
+    colorBadge: 'bg-green-500/20 text-green-500',
+  },
+  {
     title: 'Klip AI',
     description:
       'Klipai is a SaaS platform that automatically turns long videos into short, social-ready clips. Users submit a video, and the system processes it asynchronously to extract the best moments, generate captions, and deliver final clips optimized for social media.',
