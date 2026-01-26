@@ -14,11 +14,15 @@ import {
 } from '@tabler/icons-react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { useI18n } from './components/language-provider'
 import ProjectCard from './components/project-card'
-import { projects } from './data/projects'
+import { getProjects } from './data/projects'
 import { techs } from './data/tech'
 
 export default function Component() {
+  const { t, locale } = useI18n()
+  const projects = getProjects(locale)
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -37,7 +41,7 @@ export default function Component() {
               </Avatar>
               <div className="ml-0 flex justify-center flex-col items-center ">
                 <CardTitle className="text-xl">Rodrigo Carvalho</CardTitle>
-                <p className="text-sm text-zinc-400">Developer</p>
+                <p className="text-sm text-zinc-400">{t.home.role}</p>
               </div>
               <div className="flex justify-center md:justify-start  ml-0 items-center md:items-start gap-2">
                 <Link
@@ -74,22 +78,22 @@ export default function Component() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            <h2 className="text-xl font-semibold mb-4 text-white">Education</h2>
+            <h2 className="text-xl font-semibold mb-4 text-white">{t.home.education}</h2>
             <div className="space-y-4">
               <div className="border-b border-zinc-900 pb-4 space-y-1">
                 <h3 className="font-medium text-zinc-100">
-                  Bachelor's in Information Systems
+                  {t.education.bachelorsTitle}
                 </h3>
                 <p className="text-sm text-zinc-400">
-                  Uninassau Juazeiro do Norte (2023 - 2026)
+                  {t.education.bachelorsOrg}
                 </p>
               </div>
               <div className="border-b border-zinc-900 pb-4 space-y-1">
                 <h3 className="font-medium text-zinc-100">
-                  Technical Degree in Information Technology
+                  {t.education.technicalTitle}
                 </h3>
                 <p className="text-sm text-zinc-400">
-                  EEEP Antonia Nedina Onofre de Paiva (2020 - 2022)
+                  {t.education.technicalOrg}
                 </p>
               </div>
             </div>
@@ -99,42 +103,20 @@ export default function Component() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            <h2 className="text-xl font-semibold mb-4 text-white">
-              Experience
-            </h2>
+            <h2 className="text-xl font-semibold mb-4 text-white">{t.home.experience}</h2>
             <div className="space-y-4 mb-4">
               <div className="border-b border-zinc-900 pb-4 space-y-1">
-                <span className="text-zinc-400 text-xs">12/2024 - Now</span>
+                <span className="text-zinc-400 text-xs">12/2024 - {t.experience.now}</span>
                 <h3 className="font-medium text-zinc-100">
-                  Co-Founder @ Sintesy
+                  {t.experience.sintesyTitle}
                 </h3>
                 <p className="text-sm text-zinc-400 max-w-2xl">
-                  Creation of optimized landing pages with Astro and React,
-                  increasing conversion rates and improving SEO.
-                  <br />
-                  <br />
-                  Full development of the web platform with Next.js 15 (App
-                  Router), TanStack Query, Nuqs, React, TailwindCSS, Context
-                  API, Zod, and React Hook Form, integration with REST APIs via
-                  Axios.
-                  <br />
-                  <br />
-                  Screen design in Figma following usability heuristics and
-                  Design System.
-                  <br />
-                  <br />
-                  Implementation of CI/CD pipelines that optimized build and
-                  deploy time on AWS.
-                  <br />
-                  <br />
-                  Leader of strategic initiatives and positioning,
-                  contributing significantly to the expansion of the user base,
-                  impacting more than 4,300 leads.
-                  <br />
-                  <br />
-                  Participation in startup acceleration programs such as
-                  SebraeLAB and CriarCE strengthening product and business
-                  evolution.
+                  {t.experience.sintesyDescription.split('\n').map((line, idx) => (
+                    <span key={line || `line-${idx}`}>
+                      {line}
+                      <br />
+                    </span>
+                  ))}
                 </p>
                 <div className="space-x-2">
                   <Badge variant="secondary">Node.js</Badge>
@@ -148,34 +130,15 @@ export default function Component() {
               <div className="border-b border-zinc-900 pb-4 space-y-1">
                 <span className="text-zinc-400 text-xs">12/2024 - 5/2025</span>
                 <h3 className="font-medium text-zinc-100">
-                  Artificial Intelligence with AWS @ Compass UOL
+                  {t.experience.compassTitle}
                 </h3>
                 <p className="text-sm text-zinc-400 max-w-2xl">
-                  End-to-end development of intelligent chatbots,
-                  from conception to production delivery, working on both
-                  frontend and backend
-                  <br />
-                  <br />
-                  Using Python and Node.js, with libraries like LangChain
-                  for creating advanced conversational flows, integration
-                  with AWS Bedrock language models and orchestration of
-                  dynamic prompts using AWS Lambda and API Gateway, with S3
-                  for storage
-                  <br />
-                  <br />
-                  Creation of dedicated web servers on EC2, configuring
-                  containerized environments with Docker and Node.js, optimizing images to
-                  reduce build and deploy time
-                  <br />
-                  <br />
-                  Implementation, monitoring, and real-time observability
-                  with CloudWatch Logs, creating metrics and alarms for critical
-                  events
-                  <br />
-                  <br />
-                  Participation in agile sprints with Scrum and Kanban, conducting
-                  daily meetings, refinements, and incremental deliveries aligned
-                  with demands and deadlines
+                  {t.experience.compassDescription.split('\n').map((line, idx) => (
+                    <span key={line || `line-${idx}`}>
+                      {line}
+                      <br />
+                    </span>
+                  ))}
                 </p>
                 <div className="space-x-2">
                   <Badge variant="secondary">Node.js</Badge>
@@ -191,7 +154,7 @@ export default function Component() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            <h2 className="text-xl font-semibold mb-4 text-white">Tech Stack</h2>
+            <h2 className="text-xl font-semibold mb-4 text-white">{t.home.techStack}</h2>
             <ScrollArea className="w-full whitespace-nowrap rounded-none">
               <div className="flex w-max space-x-2 border-b border-zinc-900 p-4">
                 {techs.map(tech => (
@@ -211,7 +174,7 @@ export default function Component() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            <h2 className="text-xl font-semibold mb-4">Projects</h2>
+            <h2 className="text-xl font-semibold mb-4">{t.home.projects}</h2>
             <div className="flex flex-col gap-4 justify-start">
               {projects.map((project, index) => (
                 <motion.div
@@ -234,7 +197,7 @@ export default function Component() {
               href="/blog"
               className="group transition-colors flex items-center"
             >
-              <h2 className="text-xl font-semibold hover:opacity-90">Blog</h2>
+              <h2 className="text-xl font-semibold hover:opacity-90">{t.home.blog}</h2>
               <IconArrowUpRight className="h-3 w-3 ml-1 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.section>

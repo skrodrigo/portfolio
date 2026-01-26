@@ -14,4 +14,5 @@ export interface Project {
   linkFigma?: string | null
   technologies: string[]
   colorBadge: string
+  downloadLink?: string | null
 }

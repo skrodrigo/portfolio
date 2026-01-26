@@ -6,12 +6,15 @@ import { Card, CardContent } from '@/components/ui/card'
 import type { PostData } from '@/lib/posts'
 import { IconArrowBackUp, IconCalendar, IconUser } from '@tabler/icons-react'
 import Link from 'next/link'
+import { useI18n } from '../../components/language-provider'
 
 interface PostContentProps {
   post: PostData
 }
 
 export default function PostContent({ post }: PostContentProps) {
+  const { locale } = useI18n()
+
   return (
     <div className="min-h-screen bg-black text-white p-2">
       <ScrollProgress className="fixed top-0 h-0.5 bg-[linear-gradient(to_right,rgba(255,255,255,0),#ffffff_75%,#ffffff_100%)] z-50" />
@@ -31,7 +34,7 @@ export default function PostContent({ post }: PostContentProps) {
                   <div className="flex items-center px-3 py-1 ">
                     <IconCalendar className="h-4 w-4 mr-1.5" />
                     <time dateTime={post.date}>
-                      {new Date(post.date).toLocaleDateString('pt-BR', {
+                      {new Date(post.date).toLocaleDateString(locale === 'pt-BR' ? 'pt-BR' : 'en-US', {
                         year: 'numeric',
                         month: 'long',
                         day: 'numeric',

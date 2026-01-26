@@ -1,10 +1,19 @@
 import type { Project } from '@/app/types/interfaces'
 
-export const projects: Project[] = [
+type Locale = 'pt-BR' | 'en'
+
+type ProjectLocalized = Omit<Project, 'description'> & {
+  description: Record<Locale, string>
+}
+
+const projectsLocalized: ProjectLocalized[] = [
   {
     title: 'Sintesy',
-    description:
-      'Sintesy listens to your ideas, meetings, planning sessions and creates a continuous line of reasoning with notes, topics, checklists and much more! Optimizing your workflows by 10x.',
+    description: {
+      en: 'Sintesy listens to your ideas, meetings, planning sessions and creates a continuous line of reasoning with notes, topics, checklists and much more! Optimizing your workflows by 10x.',
+      'pt-BR':
+        'A Sintesy escuta suas ideias, reuniões e planejamentos e cria uma linha contínua de raciocínio com notas, tópicos, checklists e muito mais. Otimizando seus fluxos de trabalho em 10x.',
+    },
     image: '/sintesy.png',
     LandingPage: 'https://sintesy.me/',
     linkGithub: 'https://github.com/skrodrigo',
@@ -21,10 +30,13 @@ export const projects: Project[] = [
   },
   {
     title: 'Sacola',
-    description:
-      'Mobile shopping list app with budget control.',
+    description: {
+      en: 'Mobile shopping list app with budget control.',
+      'pt-BR': 'Aplicativo mobile de lista de compras com controle de orçamento.',
+    },
     image: '/Sacola.png',
     linkGithub: 'https://github.com/skrodrigo/sacola',
+    downloadLink: 'https://github.com/skrodrigo/sacolafacil/releases/tag/v1.0.0',
     technologies: [
       'React Native',
       'Expo',
@@ -40,8 +52,11 @@ export const projects: Project[] = [
   },
   {
     title: 'Klip AI',
-    description:
-      'Klipai is a SaaS platform that automatically turns long videos into short, social-ready clips. Users submit a video, and the system processes it asynchronously to extract the best moments, generate captions, and deliver final clips optimized for social media.',
+    description: {
+      en: 'Klipai is a SaaS platform that automatically turns long videos into short, social-ready clips. Users submit a video, and the system processes it asynchronously to extract the best moments, generate captions, and deliver final clips optimized for social media.',
+      'pt-BR':
+        'Klipai é uma plataforma SaaS que transforma automaticamente vídeos longos em clipes curtos prontos para redes sociais. O usuário envia um vídeo e o sistema processa de forma assíncrona para extrair os melhores momentos, gerar legendas e entregar clipes finais otimizados para social.',
+    },
     image: '/klipai.png',
     LandingPage: 'https://klipai.com.br/',
     linkGithub: 'https://github.com/skrodrigo/klipai',
@@ -65,8 +80,11 @@ export const projects: Project[] = [
   },
   {
     title: 'Nexus',
-    description:
-      'A chat platform integrated with multiple AI models, where users can switch between models, create new chats, organize conversations and compare responses.',
+    description: {
+      en: 'A chat platform integrated with multiple AI models, where users can switch between models, create new chats, organize conversations and compare responses.',
+      'pt-BR':
+        'Uma plataforma de chat integrada com múltiplos modelos de IA, onde usuários podem alternar entre modelos, criar novos chats, organizar conversas e comparar respostas.',
+    },
     image: '/nexus.png',
     LandingPage: 'https://n3xus.com.br/',
     linkGithub: 'https://github.com/skrodrigo/nexus',
@@ -89,8 +107,10 @@ export const projects: Project[] = [
   },
   {
     title: 'Genesis',
-    description:
-      'Genesis is a SaaS for generating Front End interfaces using artificial intelligence.',
+    description: {
+      en: 'Genesis is a SaaS for generating Front End interfaces using artificial intelligence.',
+      'pt-BR': 'Genesis é um SaaS para gerar interfaces Front End usando inteligência artificial.',
+    },
     image: '/genesis.png',
     linkGithub: 'https://github.com/skrodrigo/genesis',
     technologies: [
@@ -111,3 +131,12 @@ export const projects: Project[] = [
     colorBadge: 'bg-violet-500/20 text-violet-500',
   },
 ]
+
+export function getProjects(locale: Locale): Project[] {
+  return projectsLocalized.map(p => ({
+    ...p,
+    description: p.description[locale],
+  }))
+}
+
+export const projects: Project[] = getProjects('en')

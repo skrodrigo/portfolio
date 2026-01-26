@@ -1,13 +1,16 @@
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardFooter } from '@/components/ui/card'
-import { IconBrandFigma, IconBrandGithub } from '@tabler/icons-react'
+import { IconBrandFigma, IconBrandGithub, IconDownload } from '@tabler/icons-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import type { Project } from '../types/interfaces'
+import { useI18n } from './language-provider'
 import ShinyCard from './shiny-card'
 
 export default function ProjectCard({ project }: { project: Project }) {
+  const { t } = useI18n()
+
   return (
     <ShinyCard className="group h-full max-w-96">
       <Card className="bg-zinc-950 border border-zinc-900 hover:border-zinc-500 overflow-hidden h-full flex flex-col max-w-96">
@@ -50,7 +53,7 @@ export default function ProjectCard({ project }: { project: Project }) {
                 rel="noopener noreferrer"
                 className="flex"
               >
-                Landing Page
+                {t.project.landingPage}
               </Link>
             </div>
           )}
@@ -62,7 +65,7 @@ export default function ProjectCard({ project }: { project: Project }) {
                 rel="noopener noreferrer"
                 className=""
               >
-                Dashboard
+                {t.project.dashboard}
               </Link>
             </div>
           )}
@@ -75,7 +78,7 @@ export default function ProjectCard({ project }: { project: Project }) {
                 rel="noopener noreferrer"
                 className=""
               >
-                Github
+                {t.project.github}
               </Link>
             </div>
           )}
@@ -88,7 +91,20 @@ export default function ProjectCard({ project }: { project: Project }) {
                 rel="noopener noreferrer"
                 className=""
               >
-                Figma
+                {t.project.figma}
+              </Link>
+            </div>
+          )}
+          {project?.downloadLink && (
+            <div className="flex justify-center items-center bg-white text-black px-3 py-1 text-xs rounded-none font-semibold">
+              <IconDownload className="h-4 w-4 mr-2" />
+              <Link
+                href={project?.downloadLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className=""
+              >
+                {t.project.download}
               </Link>
             </div>
           )}
