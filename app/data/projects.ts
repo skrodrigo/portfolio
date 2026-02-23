@@ -79,15 +79,15 @@ const projectsLocalized: ProjectLocalized[] = [
     colorBadge: 'bg-purple-500/20 text-purple-500',
   },
   {
-    title: 'Punkim',
+    title: 'Pumkin',
     description: {
       en: 'A chat platform integrated with multiple AI models, where users can switch between models, create new chats, organize conversations and compare responses.',
       'pt-BR':
         'Uma plataforma de chat integrada com múltiplos modelos de IA, onde usuários podem alternar entre modelos, criar novos chats, organizar conversas e comparar respostas.',
     },
-    image: '/punkim.png',
-    LandingPage: 'https://punkim.com.br/',
-    linkGithub: 'https://github.com/skrodrigo/punkim',
+    image: '/pumkin.png',
+    LandingPage: 'https://pumkin.com.br/',
+    linkGithub: 'https://github.com/skrodrigo/pumkin',
     technologies: [
       'Next.js',
       'TypeScript',
@@ -103,7 +103,7 @@ const projectsLocalized: ProjectLocalized[] = [
       'Zod',
       'React Hook Form',
     ],
-    colorBadge: 'bg-emerald-500/20 text-emerald-500',
+    colorBadge: 'bg-amber-500/5 text-amber-300',
   },
   {
     title: 'Genesis',
