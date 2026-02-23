@@ -79,15 +79,15 @@ const projectsLocalized: ProjectLocalized[] = [
     colorBadge: 'bg-purple-500/20 text-purple-500',
   },
   {
-    title: 'Nexus',
+    title: 'Punkim',
     description: {
       en: 'A chat platform integrated with multiple AI models, where users can switch between models, create new chats, organize conversations and compare responses.',
       'pt-BR':
         'Uma plataforma de chat integrada com múltiplos modelos de IA, onde usuários podem alternar entre modelos, criar novos chats, organizar conversas e comparar respostas.',
     },
-    image: '/nexus.png',
-    LandingPage: 'https://n3xus.com.br/',
-    linkGithub: 'https://github.com/skrodrigo/nexus',
+    image: '/punkim.png',
+    LandingPage: 'https://punkim.com.br/',
+    linkGithub: 'https://github.com/skrodrigo/punkim',
     technologies: [
       'Next.js',
       'TypeScript',
