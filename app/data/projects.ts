@@ -26,7 +26,7 @@ const projectsLocalized: ProjectLocalized[] = [
       'Zod',
       'React Hook Form',
     ],
-    colorBadge: 'bg-sky-500/20 text-sky-500',
+    colorBadge: 'bg-zinc-500/20 text-zinc-100',
   },
   {
     title: 'Sacola',
@@ -104,31 +104,6 @@ const projectsLocalized: ProjectLocalized[] = [
       'React Hook Form',
     ],
     colorBadge: 'bg-amber-500/5 text-amber-300',
-  },
-  {
-    title: 'Genesis',
-    description: {
-      en: 'Genesis is a SaaS for generating Front End interfaces using artificial intelligence.',
-      'pt-BR': 'Genesis é um SaaS para gerar interfaces Front End usando inteligência artificial.',
-    },
-    image: '/genesis.png',
-    linkGithub: 'https://github.com/skrodrigo/genesis',
-    technologies: [
-      'Next.js',
-      'Prisma',
-      'Shadcn',
-      'BetterAuth',
-      'Tailwind CSS',
-      'Shadcn UI',
-      'AI-SDK',
-      'Stripe',
-      'Resend',
-      'NeonDB',
-      'Nuqs',
-      'Zod',
-      'React Hook Form',
-    ],
-    colorBadge: 'bg-violet-500/20 text-violet-500',
   },
 ]
 

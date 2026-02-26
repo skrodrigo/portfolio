@@ -9,8 +9,9 @@ import {
   IconArrowUpRight,
   IconBrandGithub,
   IconBrandLinkedin,
-  IconChevronUpRight,
+  IconBrandYoutube,
   IconMail,
+  IconWorld,
 } from '@tabler/icons-react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -61,18 +62,66 @@ export default function Component() {
                   <IconBrandGithub className="size-5" />
                 </Link>
                 <Link
-                  href="https://www.instagram.com/skrodrigo"
+                  href="https://youtube.com/@skrdg"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-zinc-900 p-2 rounded-none border"
                 >
-                  <IconMail className="size-5" />
+                  <IconBrandYoutube className="size-5 fill" />
                 </Link>
               </div>
             </div>
           </div>
         </aside>
         <main className="flex-1 p-4 md:p-8 space-y-8 overflow-y-auto md:border-r">
+          <motion.section
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.1 }}
+          >
+            <h2 className="text-xl font-semibold mb-4 text-white">{t.home.summary}</h2>
+            <p className="text-sm text-zinc-400 max-w-2xl">{t.summary.text}</p>
+          </motion.section>
+          <motion.section
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.18 }}
+          >
+            <h2 className="text-xl font-semibold mb-4 text-white">
+              {t.home.certifications}
+            </h2>
+            <div className="space-y-2">
+              <Link
+                href={t.certifications.awsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm group text-zinc-300 hover:underline inline-flex items-center"
+              >
+                {t.certifications.awsTitle}
+                <IconArrowUpRight className="h-3 w-3 ml-1 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+              <br />
+              <Link
+                href={t.certifications.aiAssistedUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm group text-zinc-300 hover:underline inline-flex items-center"
+              >
+                {t.certifications.aiAssistedTitle}
+                <IconArrowUpRight className="h-3 w-3 ml-1 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+              <br />
+              <Link
+                href={t.certifications.genAiUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm group text-zinc-300 hover:underline inline-flex items-center"
+              >
+                {t.certifications.genAiTitle}
+                <IconArrowUpRight className="h-3 w-3 ml-1 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+            </div>
+          </motion.section>
           <motion.section
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}

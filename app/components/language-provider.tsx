@@ -7,11 +7,28 @@ type Locale = 'pt-BR' | 'en'
 type Dictionary = {
   home: {
     role: string
+    summary: string
+    skills: string
+    certifications: string
     education: string
     experience: string
     techStack: string
     projects: string
     blog: string
+  }
+  summary: {
+    text: string
+  }
+  skills: {
+    text: string
+  }
+  certifications: {
+    awsTitle: string
+    awsUrl: string
+    aiAssistedTitle: string
+    aiAssistedUrl: string
+    genAiTitle: string
+    genAiUrl: string
   }
   experience: {
     now: string
@@ -42,20 +59,40 @@ const dictionaries: Record<Locale, Dictionary> = {
   'en': {
     home: {
       role: 'Developer',
+      summary: 'Summary',
+      skills: 'Skills',
+      certifications: 'Certifications',
       education: 'Education',
       experience: 'Experience',
       techStack: 'Tech Stack',
       projects: 'Projects',
       blog: 'Blog',
     },
+    summary: {
+      text: 'Full-Stack Developer with a Front-End focus, 2+ years of experience, and enthusiastic about building modern, scalable SaaS products. Seeking opportunities to grow technically, collaborate with high-performing teams, and contribute to high-impact projects.',
+    },
+    skills: {
+      text: 'Next.js | React.js | TypeScript | Node.js | AWS | Git | Scrum | Kanban | Docker | AI/ML | REST APIs | PostgreSQL | CI/CD | Grafana | Redux / Zustand | React Query / TanStack Query | Jest / Vitest | Python | Django | Express.js | NestJS | Go',
+    },
+    certifications: {
+      awsTitle: 'AWS Certified Cloud Practitioner',
+      awsUrl:
+        'https://cp.certmetrics.com/amazon/en/public/verify/credential/b09f3b267d6c43dca183f0d0f1822cee',
+      aiAssistedTitle: 'AI-Assisted Certified Professional',
+      aiAssistedUrl:
+        'https://learning.compass.uol/admin/tool/certificate/view.php?code=2658723567JR',
+      genAiTitle: 'GenAI Technical Certification',
+      genAiUrl:
+        'https://learning.compass.uol/admin/tool/certificate/view.php?code=4955219298JR',
+    },
     experience: {
       now: 'Now',
-      sintesyTitle: 'Co-Founder @ Sintesy',
+      sintesyTitle: 'Front-End Developer - Sintesy',
       sintesyDescription:
-        'Creation of optimized landing pages with Astro and React, increasing conversion rates and improving SEO.\n\nFull development of the web platform with Next.js 15 (App Router), TanStack Query, Nuqs, React, TailwindCSS, Context API, Zod, and React Hook Form, integration with REST APIs via Axios.\n\nScreen design in Figma following usability heuristics and Design System.\n\nImplementation of CI/CD pipelines that optimized build and deploy time on AWS.\n\nLeader of strategic initiatives and positioning, contributing significantly to the expansion of the user base, impacting more than 4,300 leads.\n\nParticipation in startup acceleration programs such as SebraeLAB and CriarCE strengthening product and business evolution.',
-      compassTitle: 'Artificial Intelligence with AWS @ Compass UOL',
+        'Advanced use of AI agents (Windsurf, Cursor).\n\nAdvanced prompt engineering techniques and intensive AI-assisted code generation.\n\nOrchestration of agents and multi-agent workflows (Roles, Skills, Plan Mode, MCP).\n\nBuilding optimized landing pages with Astro and React.\n\nBuilding a blog with Astro to index more pages.\n\nLanding page internationalization with i18n, supporting multiple languages.\n\nEnd-to-end development of the platform using Next.js 16 (App Router), TanStack Query, Nuqs, React, Tailwind CSS, Context API, Zod, and React Hook Form.\n\nUsing modern frontend rendering strategies: SSG and SSR.\n\nImplementing embedded Stripe checkout.\n\nBackend + frontend API integrations (e.g. Meta Ads conversions).\n\nDesigning screens in Figma following usability heuristics and a Design System.\n\nImplementing CI/CD pipelines and deploying to AWS.\n\nImplementing frontend observability with Grafana and Prometheus.',
+      compassTitle: 'AI & ML with AWS Intern - Compass UOL',
       compassDescription:
-        'End-to-end development of intelligent chatbots, from conception to production delivery, working on both frontend and backend.\n\nUsing Python and Node.js, with libraries like LangChain for creating advanced conversational flows, integration with AWS Bedrock language models and orchestration of dynamic prompts using AWS Lambda and API Gateway, with S3 for storage.\n\nCreation of dedicated web servers on EC2, configuring containerized environments with Docker and Node.js, optimizing images to reduce build and deploy time.\n\nImplementation, monitoring, and real-time observability with CloudWatch Logs, creating metrics and alarms for critical events.\n\nParticipation in agile sprints with Scrum and Kanban, conducting daily meetings, refinements, and incremental deliveries aligned with demands and deadlines.',
+        'End-to-end development of intelligent chatbots, working across frontend and backend.\n\nUsing Python and Node.js, with libraries like LangChain to build conversational flows.\n\nIntegrating with AWS Bedrock language models.\n\nOrchestrating dynamic prompts with AWS Lambda and API Gateway.\n\nUsing S3 for storage.\n\nManaging EC2, setting up containerized environments with Docker and Node.js.\n\nImplementing monitoring and real-time observability with CloudWatch Logs.\n\nParticipating in agile sprints with Scrum and Kanban (daily meetings, refinements, and deliveries).',
     },
     education: {
       bachelorsTitle: "Bachelor's in Information Systems",
@@ -77,20 +114,40 @@ const dictionaries: Record<Locale, Dictionary> = {
   'pt-BR': {
     home: {
       role: 'Desenvolvedor',
+      summary: 'Resumo',
+      skills: 'Habilidades',
+      certifications: 'Certificações',
       education: 'Formação',
       experience: 'Experiência',
       techStack: 'Stack',
       projects: 'Projetos',
       blog: 'Blog',
     },
+    summary: {
+      text: 'Desenvolvedor Full-Stack com foco em Front-End, +2 anos de experiência, entusiasta em soluções SaaS, Web modernas e escaláveis. Busco oportunidades para evoluir tecnicamente, colaborar com times de alto nível e contribuir para projetos de grande impacto.',
+    },
+    skills: {
+      text: 'Next.js | React.js | TypeScript | Node.js | AWS | Git | Scrum | Kanban | Docker | AI/ML | REST APIs | PostgreSQL | CI/CD | Grafana | Redux / Zustand | React Query / TanStack Query | Jest / Vitest | Python | Django | Express.js | NestJS | Go',
+    },
+    certifications: {
+      awsTitle: 'AWS Certified Cloud Practitioner',
+      awsUrl:
+        'https://cp.certmetrics.com/amazon/en/public/verify/credential/b09f3b267d6c43dca183f0d0f1822cee',
+      aiAssistedTitle: 'AI-Assisted Certified Professional',
+      aiAssistedUrl:
+        'https://learning.compass.uol/admin/tool/certificate/view.php?code=2658723567JR',
+      genAiTitle: 'GenAI Technical Certification',
+      genAiUrl:
+        'https://learning.compass.uol/admin/tool/certificate/view.php?code=4955219298JR',
+    },
     experience: {
       now: 'Atual',
-      sintesyTitle: 'Co-Fundador @ Sintesy',
+      sintesyTitle: 'Desenvolvedor Front-End - Sintesy',
       sintesyDescription:
-        'Criação de landing pages otimizadas com Astro e React, aumentando a taxa de conversão e melhorando SEO.\n\nDesenvolvimento completo da plataforma web com Next.js 15 (App Router), TanStack Query, Nuqs, React, TailwindCSS, Context API, Zod e React Hook Form, com integração a APIs REST via Axios.\n\nDesign de telas no Figma seguindo heurísticas de usabilidade e Design System.\n\nImplementação de pipelines de CI/CD que otimizaram tempo de build e deploy na AWS.\n\nLiderança de iniciativas estratégicas e posicionamento, contribuindo significativamente para expansão da base de usuários, impactando mais de 4.300 leads.\n\nParticipação em programas de aceleração de startups como SebraeLAB e CriarCE, fortalecendo a evolução do produto e do negócio.',
-      compassTitle: 'Inteligência Artificial com AWS @ Compass UOL',
+        'Uso avançado de agentes de AI (Windsurf, Cursor).\n\nTécnicas avançadas de prompt engineering, geração intensiva de código com AI.\n\nOrquestração de agentes e multiagentes, Roles, Skills, Plan Mode, MCP.\n\nCriação de landing pages otimizadas com Astro e React.\n\nCriação de blog usando Astro para indexar mais páginas.\n\nInternacionalização da landing page com i18n, suportando vários idiomas.\n\nDesenvolvimento completo da plataforma utlizando Next.js 16 (App Router), TanStack Query, Nuqs, React, Tailwind CSS, Context API, Zod e React Hook Form.\n\nUso das mais atualizadas formas de renderização no frontend: SSG, SSR.\n\nImplementação de checkout transparente com Stripe.\n\nIntegração backend + frontend de APIs, como: conversões do Meta Ads.\n\nDesenho de telas no Figma seguindo heurísticas de usabilidade e Design System.\n\nImplementação de pipelines de CI/CD, e deploy na AWS.\n\nImplementação de observabilidade frontend com Grafana e Prometheus.',
+      compassTitle: 'Estágio AI & ML with AWS – Compass UOL',
       compassDescription:
-        'Desenvolvimento end-to-end de chatbots inteligentes, da concepção à entrega em produção, atuando em frontend e backend.\n\nUso de Python e Node.js, com bibliotecas como LangChain para criar fluxos conversacionais avançados, integração com modelos de linguagem da AWS Bedrock e orquestração de prompts dinâmicos usando AWS Lambda e API Gateway, com S3 para armazenamento.\n\nCriação de servidores dedicados em EC2, configurando ambientes containerizados com Docker e Node.js, otimizando imagens para reduzir tempo de build e deploy.\n\nImplementação, monitoramento e observabilidade em tempo real com CloudWatch Logs, criando métricas e alarmes para eventos críticos.\n\nParticipação em sprints ágeis com Scrum e Kanban, conduzindo dailies, refinements e entregas incrementais alinhadas às demandas e prazos.',
+        'Desenvolvimento de chatbots inteligentes de ponta a ponta, atuando no frontend e backend.\n\nUtilizando Python e Node.js, com bibliotecas como LangChain para criação de fluxos conversacionais.\n\nIntegração com modelos de linguagem do AWS Bedrock.\n\nOrquestração de prompts dinâmicos utilizando AWS Lambda e API Gateway.\n\nS3 para armazenamento.\n\nGerenciamento de EC2, configurando ambientes conteinerizados com Docker e Nodejs.\n\nImplementação e monitoramento e observabilidade em tempo real com CloudWatch Logs.\n\nParticipação de sprints ágeis com Scrum e Kanban, Daily Meetings, refinamentos e entregas.',
     },
     education: {
       bachelorsTitle: 'Bacharelado em Sistemas de Informação',
