@@ -103,7 +103,7 @@ const projectsLocalized: ProjectLocalized[] = [
       'Zod',
       'React Hook Form',
     ],
-    colorBadge: 'bg-amber-500/5 text-amber-300',
+    colorBadge: 'bg-orange-500/5 text-orange-300',
   },
 ]
 

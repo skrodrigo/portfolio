@@ -69,7 +69,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       blog: 'Blog',
     },
     summary: {
-      text: 'Full-Stack Developer with a Front-End focus, 2+ years of experience, and enthusiastic about building modern, scalable SaaS products. Seeking opportunities to grow technically, collaborate with high-performing teams, and contribute to high-impact projects.',
+      text: 'Full-Stack Developer with a Front-End focus, 2+ years of experience, and enthusiastic about building modern, scalable SaaS products.',
     },
     skills: {
       text: 'Next.js | React.js | TypeScript | Node.js | AWS | Git | Scrum | Kanban | Docker | AI/ML | REST APIs | PostgreSQL | CI/CD | Grafana | Redux / Zustand | React Query / TanStack Query | Jest / Vitest | Python | Django | Express.js | NestJS | Go',
@@ -124,7 +124,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       blog: 'Blog',
     },
     summary: {
-      text: 'Desenvolvedor Full-Stack com foco em Front-End, +2 anos de experiência, entusiasta em soluções SaaS, Web modernas e escaláveis. Busco oportunidades para evoluir tecnicamente, colaborar com times de alto nível e contribuir para projetos de grande impacto.',
+      text: 'Desenvolvedor Full-Stack com foco em Front-End, +2 anos de experiência, entusiasta em soluções SaaS, Web modernas e escaláveis.',
     },
     skills: {
       text: 'Next.js | React.js | TypeScript | Node.js | AWS | Git | Scrum | Kanban | Docker | AI/ML | REST APIs | PostgreSQL | CI/CD | Grafana | Redux / Zustand | React Query / TanStack Query | Jest / Vitest | Python | Django | Express.js | NestJS | Go',
@@ -195,7 +195,7 @@ function getInitialLocale(): Locale {
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(() => getInitialLocale())
+  const [locale, setLocaleState] = useState<Locale>('en')
 
   useEffect(() => {
     const initial = getInitialLocale()
