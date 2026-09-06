@@ -4,6 +4,7 @@ import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
 import { LanguageProvider } from './components/language-provider'
 import LanguageSwitchFab from './components/language-switch-fab'
+import ThemeToggleFab from './components/theme-toggle-fab'
 
 export const metadata: Metadata = {
   title: 'Portfólio | skrodrigo',
@@ -16,12 +17,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="theme dark" suppressHydrationWarning>
       <body
-        className={cn(GeistSans.className, 'antialiased text-white bg-black')}
+        className={cn(GeistSans.className, 'antialiased text-foreground bg-background')}
       >
         <LanguageProvider>
           {children}
+          <ThemeToggleFab />
           <LanguageSwitchFab />
         </LanguageProvider>
       </body>

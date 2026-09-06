@@ -1,12 +1,12 @@
 import { getAllPostSlugs, getPostData } from '@/lib/posts'
-import type { Metadata, ResolvingMetadata } from 'next'
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import PostContent from './post-content'
 
 interface PostPageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export async function generateStaticParams() {
@@ -15,10 +15,10 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata(
-  { params }: PostPageProps,
-  parent: ResolvingMetadata
+  { params }: PostPageProps
 ): Promise<Metadata> {
-  const post = await getPostData(params.slug)
+  const { slug } = await params
+  const post = await getPostData(slug)
 
   if (!post) {
     return {
@@ -43,7 +43,8 @@ export async function generateMetadata(
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const post = await getPostData(params.slug)
+  const { slug } = await params
+  const post = await getPostData(slug)
 
   if (!post) {
     notFound()

@@ -17,7 +17,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
   const { t, locale } = useI18n()
 
   return (
-    <div className="min-h-screen bg-black text-white p-2">
+    <div className="min-h-screen bg-[#09090b] text-white p-2">
       <div className="max-w-6xl mx-auto">
         <Link
           href="/"
