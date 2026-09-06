@@ -92,7 +92,7 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
             <img
               src={experience.companyLogo}
               alt={experience.companyName}
-              className="size-6 rounded-full"
+              className="size-6 object-contain"
               aria-hidden
             />
           ) : (

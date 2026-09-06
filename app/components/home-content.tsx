@@ -39,6 +39,7 @@ export default function HomeContent({
     {
       id: 'sintesy',
       companyName: 'Sintesy',
+      companyLogo: '/sintesy.svg',
       isCurrentEmployer: true,
       positions: [
         {
@@ -54,6 +55,7 @@ export default function HomeContent({
     {
       id: 'compass-uol',
       companyName: 'Compass UOL',
+      companyLogo: '/uol.svg',
       positions: [
         {
           id: 'compass-ai-ml',

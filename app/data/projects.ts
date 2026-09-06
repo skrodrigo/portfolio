@@ -15,8 +15,7 @@ const projectsLocalized: ProjectLocalized[] = [
         'O Sintesy escuta suas ideias, reuniões e planejamentos e cria uma linha contínua de raciocínio com notas, tópicos, checklists e muito mais. Otimizando seus fluxos de trabalho em 10x.',
     },
     image: '/sintesy.png',
-    LandingPage: 'https://sintesy.me/',
-    linkGithub: 'https://github.com/skrodrigo',
+    LandingPage: 'https://dashboard.sintesy.me/',
     technologies: [
       'Next.js',
       'TypeScript',
