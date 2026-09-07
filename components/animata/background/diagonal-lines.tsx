@@ -30,7 +30,7 @@ function Placeholder() {
 }
 
 export default function DiagonalLines({
-  color = "#27272A",
+  color = "hsl(var(--border))",
   spacing = 10,
   children,
   className,

@@ -27,11 +27,14 @@ export default function PostContent({ post }: PostContentProps) {
           <IconArrowBackUp className="h-4 w-4" />
         </Link>
 
-        <div className="flex items-start gap-8">
-          <aside className="sticky top-20 hidden w-48 shrink-0 lg:block" aria-label="Neste artigo">
+        <div className="relative mx-auto max-w-5xl lg:ml-56 lg:mr-0 lg:max-w-none 2xl:mx-auto 2xl:max-w-5xl">
+          <aside
+            className="fixed left-4 top-1/2 z-20 hidden w-48 -translate-y-1/2 lg:block"
+            aria-label="Neste artigo"
+          >
             <BlogLineNav />
           </aside>
-          <ShinyCard>
+          <ShinyCard className="w-full">
           <Card className="min-w-0 bg-transparent border-none overflow-hidden">
             <CardContent className="p-2">
               <header className="mb-12">
