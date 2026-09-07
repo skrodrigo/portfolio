@@ -252,8 +252,6 @@ export default function HomeContent({
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.1 }}
           >
-            <div className="p-[19px]">
-            </div>
           </motion.section>
           <motion.section
             initial={false}
@@ -353,7 +351,7 @@ export default function HomeContent({
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            <SectionTitle>{t.home.experience}</SectionTitle>
+            <SectionTitle hideTopBorder>{t.home.experience}</SectionTitle>
             <div className="p-3 md:p-4">
               <WorkExperience
                 className="border-y border-border bg-transparent px-0"

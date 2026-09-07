@@ -1,6 +1,7 @@
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardFooter } from '@/components/ui/card'
 import {
+  IconArrowUpRight,
   IconBrandFigma,
   IconBrandGithub,
   IconDownload,
@@ -57,6 +58,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             >
               {t.project.landingPage}
             </Link>
+            <IconArrowUpRight className="ml-1.5 size-3.5" />
           </div>
         )}
         {project?.Dashboard && (
@@ -69,6 +71,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             >
               {t.project.dashboard}
             </Link>
+            <IconArrowUpRight className="ml-1.5 size-3.5" />
           </div>
         )}
         {project?.linkGithub && (
@@ -82,6 +85,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             >
               {t.project.github}
             </Link>
+            <IconArrowUpRight className="ml-1.5 size-3.5" />
           </div>
         )}
         {project?.linkFigma && (
@@ -95,6 +99,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             >
               {t.project.figma}
             </Link>
+            <IconArrowUpRight className="ml-1.5 size-3.5" />
           </div>
         )}
         {project?.downloadLink && (
@@ -108,6 +113,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             >
               {t.project.download}
             </Link>
+            <IconArrowUpRight className="ml-1.5 size-3.5" />
           </div>
         )}
       </CardFooter>

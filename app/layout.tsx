@@ -1,3 +1,4 @@
+import 'streamdown/styles.css'
 import './globals.css'
 import { cn } from '@/lib/utils'
 import { GeistSans } from 'geist/font/sans'
@@ -19,7 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="theme dark" suppressHydrationWarning>
       <body
-        className={cn(GeistSans.className, 'antialiased text-foreground bg-background')}
+        className={cn(
+          GeistSans.className,
+          'antialiased text-foreground bg-background'
+        )}
       >
         <LanguageProvider>
           {children}

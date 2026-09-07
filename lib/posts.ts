@@ -1,8 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import matter from 'gray-matter'
-import { remark } from 'remark'
-import html from 'remark-html'
 
 const postsDirectory = path.join(process.cwd(), '_posts')
 
@@ -13,7 +11,29 @@ export interface PostData {
   author: string
   summary: string
   tags: string[]
-  contentHtml?: string
+  contentMarkdown?: string
+  translations?: {
+    'pt-BR'?: {
+      title: string
+      summary: string
+      contentMarkdown: string
+    }
+  }
+}
+
+function getPortugueseTranslation(slug: string) {
+  const translationPath = path.join(postsDirectory, `${slug}.pt-BR.md`)
+
+  if (!fs.existsSync(translationPath)) return undefined
+
+  const translationFile = fs.readFileSync(translationPath, 'utf8')
+  const translation = matter(translationFile)
+
+  return {
+    title: translation.data.title as string,
+    summary: translation.data.summary as string,
+    contentMarkdown: translation.content,
+  }
 }
 
 export function getSortedPostsData(): PostData[] {
@@ -28,16 +48,22 @@ export function getSortedPostsData(): PostData[] {
   }
 
   const allPostsData = fileNames
-    .filter(fileName => fileName.endsWith('.md'))
+    .filter(
+      fileName => fileName.endsWith('.md') && !fileName.endsWith('.pt-BR.md')
+    )
     .map(fileName => {
       const slug = fileName.replace(/\.md$/, '')
 
       const fullPath = path.join(postsDirectory, fileName)
       const fileContents = fs.readFileSync(fullPath, 'utf8')
       const matterResult = matter(fileContents)
+      const portugueseTranslation = getPortugueseTranslation(slug)
 
       return {
         slug,
+        translations: portugueseTranslation
+          ? { 'pt-BR': portugueseTranslation }
+          : undefined,
         ...(matterResult.data as {
           title: string
           date: string
@@ -64,7 +90,9 @@ export function getAllPostSlugs() {
     return []
   }
   return fileNames
-    .filter(fileName => fileName.endsWith('.md'))
+    .filter(
+      fileName => fileName.endsWith('.md') && !fileName.endsWith('.pt-BR.md')
+    )
     .map(fileName => {
       return {
         params: {
@@ -79,14 +107,13 @@ export async function getPostData(slug: string): Promise<PostData | null> {
   try {
     const fileContents = fs.readFileSync(fullPath, 'utf8')
     const matterResult = matter(fileContents)
-    const processedContent = await remark()
-      .use(html)
-      .process(matterResult.content)
-    const contentHtml = processedContent.toString()
-
+    const portugueseTranslation = getPortugueseTranslation(slug)
     return {
       slug,
-      contentHtml,
+      contentMarkdown: matterResult.content,
+      translations: portugueseTranslation
+        ? { 'pt-BR': portugueseTranslation }
+        : undefined,
       ...(matterResult.data as {
         title: string
         date: string
